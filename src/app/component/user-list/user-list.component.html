@@ -1,0 +1,19 @@
+<div>
+    <div>User List:</div>
+    <table>
+      <thead>
+        <tr><th>Username</th><th>ID</th><th>Password</th></tr>
+
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users" >
+          <!-- localhost:3306/users  -->
+          <td><a href="users/{{user.uname}}">{{user.uname}}</a></td>
+          <td>{{user.uid}}</td>
+          <td>{{user.pword}}</td>
+          <td><button type="button"(click)="deleteUser(user.uname)">DELETE</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <div>{{this.msg}}</div>
+  </div>
