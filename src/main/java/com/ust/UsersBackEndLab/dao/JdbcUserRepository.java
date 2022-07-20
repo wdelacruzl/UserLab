@@ -44,6 +44,19 @@ public class JdbcUserRepository implements UserDao {
     }
 
     @Override
+    public User validateLogin(String uname, String pword) {
+        String sql= "SELECT UNAME, PWORD FROM USERS WHERE UNAME=?";
+        User user = jdbcTemplate.queryForObject(sql,
+                BeanPropertyRowMapper.newInstance(User.class), uname);
+        if(user != null){
+            if(user.getpWord().equals(pword)){
+                return user;
+            }
+        }
+        return new User(0,"no match","no match");
+    }
+
+    @Override
     public Optional<User> queryUser(String uname) {
         User user = null;
         try {

@@ -17,5 +17,7 @@ public interface UserDao {
     int updateUser(String uname, User user);
     int deleteUser(String uname);
     List<User> queryUsers();
+
+    User validateLogin(String uname, String pword);
     Optional<User> queryUser(String uname);
 }

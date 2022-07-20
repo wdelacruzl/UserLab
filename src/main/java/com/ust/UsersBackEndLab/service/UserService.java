@@ -29,6 +29,11 @@ public class UserService {
     public List<User> queryUsers() {
         return userDao.queryUsers() ;
     }
+
+    public User validateLogin (String uname, String pword){
+        return userDao.validateLogin(uname, pword);
+    }
+
     public Optional<User> queryUser(String uname) {
         return userDao.queryUser(uname) ;
     }

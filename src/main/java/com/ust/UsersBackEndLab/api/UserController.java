@@ -36,8 +36,9 @@ public class UserController {
     List<User> queryUsers(){
         return userService.queryUsers();
     }
-    @GetMapping(value = "{uname}")
-    Optional<User> queryUser(@PathVariable("uname") String uname){
-        return userService.queryUser(uname);
+    @GetMapping(value="login/{uname}/{pword}")
+    User validateLogin(@PathVariable("uname") String uname,
+                                 @PathVariable("pword") String pword){
+        return userService.validateLogin(uname,pword);
     }
 }
